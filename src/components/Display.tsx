@@ -8,7 +8,10 @@ interface DisplayProps {
 
 const Display: React.FC<DisplayProps> = ({ value }) => {
   return (
-    <div className="mb-4 bg-gray-200 text-right p-4 rounded">
+    <div
+      data-testid="calculator-display"
+      className="mb-4 bg-gray-200 text-right p-4 rounded"
+    >
       <span className="text-2xl">{value}</span>
     </div>
   );

@@ -22,7 +22,7 @@ const ButtonPanel: React.FC<ButtonPanelProps> = ({
   onEqual,
 }) => {
   return (
-    <div className="grid grid-cols-4 gap-2">
+    <div data-testid="button-panel" className="grid grid-cols-4 gap-2">
       {/* Clear and Delete Buttons */}
       <Button
         label="AC"
