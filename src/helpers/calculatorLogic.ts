@@ -1,6 +1,6 @@
 // src/helpers/calculatorLogic.ts
 
-export type Operator = '+' | '-' | '*' | '/';
+export type Operator = '+' | '-' | '*' | '/' ;
 
 export interface CalculatorState {
   display: string;
@@ -19,26 +19,34 @@ export const initialState: CalculatorState = {
 };
 
 export const computeResult = (state: CalculatorState): number => {
-  const prev = parseFloat(state.previousInput);
-  const current = parseFloat(state.currentInput);
-  if (isNaN(prev) || isNaN(current)) return 0;
-
-  let result = 0;
-  switch (state.operator) {
-    case '+':
-      result = prev + current;
-      break;
-    case '-':
-      result = prev - current;
-      break;
-    case '*':
-      result = prev * current;
-      break;
-    case '/':
-      result = current !== 0 ? prev / current : 0;
-      break;
-    default:
-      result = current;
-  }
-  return result;
-};
+    const current = parseFloat(state.currentInput);
+    
+    // If operator is null, return currentInput or 0 if invalid
+    if (state.operator === null) {
+      return isNaN(current) ? 0 : current;
+    }
+  
+    const prev = parseFloat(state.previousInput);
+    
+    // If either input is invalid, return 0
+    if (isNaN(prev) || isNaN(current)) return 0;
+  
+    let result = 0;
+    switch (state.operator) {
+      case '+':
+        result = prev + current;
+        break;
+      case '-':
+        result = prev - current;
+        break;
+      case '*':
+        result = prev * current;
+        break;
+      case '/':
+        result = current !== 0 ? prev / current : 0;
+        break;
+      default:
+        result = current;
+    }
+    return result;
+  };
