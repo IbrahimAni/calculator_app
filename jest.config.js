@@ -8,6 +8,14 @@ export default {
     "^.+.tsx?$": ["ts-jest",{}],
   },
   collectCoverage: true, 
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov'],
 };
