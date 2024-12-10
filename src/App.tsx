@@ -1,6 +1,6 @@
 // App.tsx
 import React from 'react';
-import Calculator from './pages/calculator';
+import Calculator from './components/Calculator';
 
 const App: React.FC = () => {
   return (
